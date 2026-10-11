@@ -29,12 +29,26 @@ def upgrade() -> None:
 
     # Add subject_id column — was in the model but missing from all prior migrations
     op.add_column('lesson_notes', sa.Column('subject_id', postgresql.UUID(as_uuid=True), nullable=True))
-    op.create_foreign_key('fk_lesson_notes_subject_id', 'lesson_notes', 'class_subjects', ['subject_id'], ['id'])
+    op.create_foreign_key(
+        'fk_lesson_notes_subject_id',
+        'lesson_notes',
+        'class_subjects',
+        ['subject_id'],
+        ['id'],
+        ondelete='SET NULL',
+    )
     op.create_index(op.f('ix_lesson_notes_subject_id'), 'lesson_notes', ['subject_id'], unique=False)
 
     # Add class_id column
     op.add_column('lesson_notes', sa.Column('class_id', postgresql.UUID(as_uuid=True), nullable=True))
-    op.create_foreign_key('fk_lesson_notes_class_id', 'lesson_notes', 'classes', ['class_id'], ['id'])
+    op.create_foreign_key(
+        'fk_lesson_notes_class_id',
+        'lesson_notes',
+        'classes',
+        ['class_id'],
+        ['id'],
+        ondelete='SET NULL',
+    )
     op.create_index(op.f('ix_lesson_notes_class_id'), 'lesson_notes', ['class_id'], unique=False)
 
     # NOTE: No data backfill — existing notes predated the class/subject system.
