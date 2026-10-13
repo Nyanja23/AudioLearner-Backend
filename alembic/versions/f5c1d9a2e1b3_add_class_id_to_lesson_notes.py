@@ -1,7 +1,7 @@
 """Add class_id column to lesson_notes table
 
 Revision ID: f5c1d9a2e1b3
-Revises: 18610ce9ee70
+Revises: 7d2f6c8a4b91
 Create Date: 2026-05-19 06:08:00.000000
 
 """
@@ -14,7 +14,7 @@ from sqlalchemy.dialects import postgresql
 
 # revision identifiers, used by Alembic.
 revision: str = 'f5c1d9a2e1b3'
-down_revision: Union[str, Sequence[str], None] = '18610ce9ee70'
+down_revision: Union[str, Sequence[str], None] = '7d2f6c8a4b91'
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
 
