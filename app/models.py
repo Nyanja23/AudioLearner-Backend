@@ -95,6 +95,7 @@ class LessonNote(Base):
     class_id = Column(UUID(as_uuid=True), ForeignKey("classes.id"), nullable=True, index=True)
     subject_id = Column(UUID(as_uuid=True), ForeignKey("class_subjects.id"), nullable=True, index=True)
     teacher_id = Column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=False, index=True)
+    school_id = Column(UUID(as_uuid=True), nullable=True, index=True)
     title = Column(String(255), nullable=False)
     subject = Column(String(100), nullable=False)
     grade_level = Column(String(50), nullable=False)
