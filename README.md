@@ -1,4 +1,4 @@
-# VisioLearn Backend - An Interactive Audio Learning Platform Visually Impaired Students.
+# AudioLearner Backend - An Interactive Audio Learning Platform Visually Impaired Students.
 
 > **AI-powered interactive audio learning platform for visually impaired students**
 
