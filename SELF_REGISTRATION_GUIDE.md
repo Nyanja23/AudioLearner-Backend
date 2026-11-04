@@ -1,8 +1,8 @@
-# VisioLearn Self-Registration System
+# AudioLearner Self-Registration System
 
 ## Overview
 
-The VisioLearn backend now supports **self-registration** for teachers and students. This eliminates the need for admins to manually create every account in the system.
+The AudioLearner backend now supports **self-registration** for teachers and students. This eliminates the need for admins to manually create every account in the system.
 
 ## Architecture
 
@@ -31,7 +31,7 @@ Teachers & Students (Self-Registration)
 
 ### Phase 1: Admin Setup
 1. System initializes with bootstrap admin (auto-created on first startup)
-   - Email: `admin@visiolearn.org`
+   - Email: `admin@audiolearner.org`
    - Password: `AdminPass123!@`
 
 ### Phase 2: School Creation
@@ -279,7 +279,7 @@ Response:
 
 ### Bootstrap Admin
 - Auto-created on first application startup
-- Email: `admin@visiolearn.org`
+- Email: `admin@audiolearner.org`
 - Password: `AdminPass123!@` (set in `app/main.py`)
 - Bootstrap endpoint (`POST /api/v1/users/bootstrap`) only works if no users exist
 

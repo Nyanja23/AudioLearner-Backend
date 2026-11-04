@@ -1,4 +1,4 @@
-"""Text extraction from various file formats for VisioLearn"""
+"""Text extraction from various file formats for AudioLearner"""
 
 import PyPDF2
 from docx import Document

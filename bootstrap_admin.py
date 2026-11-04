@@ -16,7 +16,7 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 
 if not DATABASE_URL:
     print("[!] DATABASE_URL not set. Using SQLite fallback.")
-    DATABASE_URL = "sqlite:///./visiolearn.db"
+    DATABASE_URL = "sqlite:///./audiolearner.db"
 else:
     print(f"[*] Using PostgreSQL database from Render")
 
@@ -36,7 +36,7 @@ try:
     db = SessionLocal()
     
     # Check if admin already exists
-    existing_admin = db.query(User).filter(User.email == "admin@visiolearn.org").first()
+    existing_admin = db.query(User).filter(User.email == "admin@audiolearner.org").first()
     
     if existing_admin:
         print(f"[!] Admin already exists!")
@@ -49,7 +49,7 @@ try:
     # Create admin user
     print("[*] Creating bootstrap admin user...")
     admin = User(
-        email="admin@visiolearn.org",
+        email="admin@audiolearner.org",
         full_name="System Administrator",
         role="admin",
         hashed_password=get_password_hash("AdminPass123!@"),
@@ -65,7 +65,7 @@ try:
     print(f"    Role: {admin.role}")
     print(f"    ID: {admin.id}")
     print(f"\n    Login credentials:")
-    print(f"    Email: admin@visiolearn.org")
+    print(f"    Email: admin@audiolearner.org")
     print(f"    Password: AdminPass123!@")
     
     db.close()

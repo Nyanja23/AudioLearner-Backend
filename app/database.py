@@ -12,8 +12,8 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 # If no DATABASE_URL, use SQLite for development
 if not DATABASE_URL:
     # Use SQLite for development without PostgreSQL
-    DATABASE_URL = "sqlite:///./visiolearn.db"
-    print("[*] No DATABASE_URL provided - using SQLite: visiolearn.db")
+    DATABASE_URL = "sqlite:///./audiolearner.db"
+    print("[*] No DATABASE_URL provided - using SQLite: audiolearner.db")
 
 # Environment check for pool configuration
 ENVIRONMENT = os.getenv("ENVIRONMENT", "development")

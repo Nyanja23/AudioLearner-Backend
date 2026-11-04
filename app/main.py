@@ -18,7 +18,7 @@ load_dotenv()
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Startup
-    print(f"[*] VisioLearn Backend starting - Password hashing: {PASSWORD_HASHING_VERSION}")
+    print(f"[*] AudioLearner Backend starting - Password hashing: {PASSWORD_HASHING_VERSION}")
     print("[*] Initializing database...")
     
     # Run Alembic migrations
@@ -30,7 +30,7 @@ async def lifespan(app: FastAPI):
         from alembic.operations import Operations
         
         alembic_cfg = Config("alembic.ini")
-        alembic_cfg.set_main_option("sqlalchemy.url", os.getenv("DATABASE_URL", "sqlite:///visiolearn.db"))
+        alembic_cfg.set_main_option("sqlalchemy.url", os.getenv("DATABASE_URL", "sqlite:///audiolearner.db"))
         
         with engine.begin() as connection:
             ctx = MigrationContext.configure(connection)
@@ -104,7 +104,7 @@ async def lifespan(app: FastAPI):
                 bootstrap_password = os.getenv("ADMIN_BOOTSTRAP_PASSWORD", "")
                 if bootstrap_password:
                     admin = models.User(
-                        email=os.getenv("ADMIN_BOOTSTRAP_EMAIL", "admin@visiolearn.org"),
+                        email=os.getenv("ADMIN_BOOTSTRAP_EMAIL", "admin@audiolearner.org"),
                         full_name="System Administrator",
                         role="admin",
                         hashed_password=get_password_hash(bootstrap_password)
@@ -138,7 +138,7 @@ async def lifespan(app: FastAPI):
     print("[-] App shutting down...")
 
 app = FastAPI(
-    title="VisioLearn Backend",
+    title="AudioLearner Backend",
     description="Offline-first interactive audio learning platform API for visually impaired students",
     version="2.0.0",
     docs_url="/docs",
@@ -173,7 +173,7 @@ app.add_middleware(
 # Root endpoint
 @app.get("/")
 def read_root():
-    return {"message": "VisioLearn Backend API is online", "status": "success"}
+    return {"message": "AudioLearner Backend API is online", "status": "success"}
 
 # Health check endpoint
 @app.get("/health")
@@ -221,7 +221,7 @@ def custom_openapi():
         return app.openapi_schema
     
     openapi_schema = get_openapi(
-        title="VisioLearn Backend",
+        title="AudioLearner Backend",
         version="2.0.0",
         description="Offline-first interactive audio learning platform API for visually impaired students",
         routes=app.routes,

@@ -1,4 +1,4 @@
-"""Utility functions for VisioLearn backend."""
+"""Utility functions for AudioLearner backend."""
 import random
 import string
 

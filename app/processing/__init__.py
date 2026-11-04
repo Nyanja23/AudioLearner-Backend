@@ -1,4 +1,4 @@
-"""VisioLearn content processing module.
+"""AudioLearner content processing module.
 
 Only text extraction lives on the server. Question generation, summarising,
 and lesson segmentation all run ON THE STUDENT'S DEVICE — that is what makes

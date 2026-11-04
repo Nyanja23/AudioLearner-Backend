@@ -16,13 +16,13 @@ This endpoint is a **temporary workaround** for Render's free tier which doesn't
 
 Make a POST request to:
 ```
-https://visiolearn-backend.onrender.com/internal/create-admin
+https://audiolearner-backend.onrender.com/internal/create-admin
 ```
 
 **Request Body:**
 ```json
 {
-  "email": "admin@visiolearn.org",
+  "email": "admin@audiolearner.org",
   "password": "AdminPass123!@",
   "secret": "your-super-secret-key-12345"
 }
@@ -30,10 +30,10 @@ https://visiolearn-backend.onrender.com/internal/create-admin
 
 **Using curl:**
 ```bash
-curl -X POST https://visiolearn-backend.onrender.com/internal/create-admin \
+curl -X POST https://audiolearner-backend.onrender.com/internal/create-admin \
   -H "Content-Type: application/json" \
   -d '{
-    "email": "admin@visiolearn.org",
+    "email": "admin@audiolearner.org",
     "password": "AdminPass123!@",
     "secret": "your-super-secret-key-12345"
   }'
@@ -45,7 +45,7 @@ curl -X POST https://visiolearn-backend.onrender.com/internal/create-admin \
 {
   "status": "created",
   "message": "Admin user created successfully",
-  "email": "admin@visiolearn.org",
+  "email": "admin@audiolearner.org",
   "role": "admin",
   "id": "xxx-xxx-xxx",
   "warning": "DELETE OR DISABLE THIS ENDPOINT AFTER FIRST USE"
@@ -56,7 +56,7 @@ curl -X POST https://visiolearn-backend.onrender.com/internal/create-admin \
 
 Check the health endpoint:
 ```
-https://visiolearn-backend.onrender.com/health
+https://audiolearner-backend.onrender.com/health
 ```
 
 Should show:
@@ -65,13 +65,13 @@ Should show:
   "status": "healthy",
   "database": "connected",
   "admin_exists": true,
-  "admin_email": "admin@visiolearn.org"
+  "admin_email": "admin@audiolearner.org"
 }
 ```
 
 ### 5. Login Should Now Work
 
-- **Email:** `admin@visiolearn.org`
+- **Email:** `admin@audiolearner.org`
 - **Password:** `AdminPass123!@`
 
 ---

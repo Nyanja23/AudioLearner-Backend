@@ -1,3 +1,13 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# LEGACY — Render deployment, kept as the FALLBACK during the Railway migration.
+#
+# Primary hosting is now Railway (see railway.json and RAILWAY_DEPLOYMENT.md).
+# The service names below still read "visiolearn" ON PURPOSE: they identify
+# resources that already exist in the Render account, and renaming them here
+# would make Render try to create new ones. Delete this file, and
+# .github/workflows/deploy-render.yml, once Railway is proven and Render is
+# retired.
+# ─────────────────────────────────────────────────────────────────────────────
 services:
   # Production Web Service
   - type: web

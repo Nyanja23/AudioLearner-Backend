@@ -12,7 +12,7 @@ def test_openapi_documentation():
     
     openapi_schema = app.openapi()
     assert openapi_schema is not None
-    assert openapi_schema["info"]["title"] == "VisioLearn Backend"
+    assert openapi_schema["info"]["title"] == "AudioLearner Backend"
     assert "version" in openapi_schema["info"]
 
 

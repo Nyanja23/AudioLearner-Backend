@@ -3,20 +3,20 @@ version: '3.8'
 services:
   redis:
     image: redis:7-alpine
-    container_name: visiolearn_redis
+    container_name: audiolearner_redis
     ports:
       - "6380:6379"
     volumes:
       - redis_data:/data
     command: redis-server --appendonly yes
     networks:
-      - visiolearn
+      - audiolearner
 
   postgres:
     image: postgres:15
-    container_name: visiolearn_postgres
+    container_name: audiolearner_postgres
     environment:
-      POSTGRES_DB: visiolearn
+      POSTGRES_DB: audiolearner
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
@@ -24,12 +24,12 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
-      - visiolearn
+      - audiolearner
 
 volumes:
   redis_data:
   postgres_data:
 
 networks:
-  visiolearn:
+  audiolearner:
     driver: bridge

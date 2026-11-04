@@ -2,7 +2,7 @@
 
 ## Overview
 
-VisioLearn supports TWO methods for uploading lesson notes:
+AudioLearner supports TWO methods for uploading lesson notes:
 
 1. **Metadata-Only** (Simple) - For descriptions and metadata
 2. **File Upload** (Recommended) - For actual files (PDF, DOCX, TXT)

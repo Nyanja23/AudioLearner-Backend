@@ -14,21 +14,21 @@ After initialization, use these credentials to test:
 
 ### Admin User
 ```
-Email: admin@visiolearn.org
+Email: admin@audiolearner.org
 Password: AdminPass123!@
 Role: admin (all permissions)
 ```
 
 ### Teacher User
 ```
-Email: teacher@visiolearn.org
+Email: teacher@audiolearner.org
 Password: TeacherPass123!@
 Role: teacher (can upload notes, view progress)
 ```
 
 ### Student User
 ```
-Email: student@visiolearn.org
+Email: student@audiolearner.org
 Password: StudentPass123!@
 Role: student (can access lessons, voice sessions)
 ```
@@ -72,10 +72,10 @@ render exec your-backend-service -- python seed_database.py
 
 **Step 4: Test Login**
 ```bash
-curl -X POST https://visiolearn-backend.onrender.com/api/v1/auth/login \
+curl -X POST https://audiolearner-backend.onrender.com/api/v1/auth/login \
   -H "Content-Type: application/json" \
   -d '{
-    "email": "admin@visiolearn.org",
+    "email": "admin@audiolearner.org",
     "password": "AdminPass123!@"
   }'
 ```
@@ -138,7 +138,7 @@ python seed_database.py
 ### Issue: "ModuleNotFoundError: No module named 'app'"
 **Solution:** Run from project root:
 ```bash
-cd /path/to/VisioLearn-Backend
+cd /path/to/AudioLearner-Backend
 python seed_database.py
 ```
 

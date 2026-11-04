@@ -5,15 +5,15 @@ services:
   postgres:
     image: postgres:15
     environment:
-      POSTGRES_USER: visiolearn
+      POSTGRES_USER: audiolearner
       POSTGRES_PASSWORD: secure_password_change_this
-      POSTGRES_DB: visiolearn
+      POSTGRES_DB: audiolearner
     volumes:
       - postgres_prod_data:/var/lib/postgresql/data
     ports:
       - "5433:5432"
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U visiolearn"]
+      test: ["CMD-SHELL", "pg_isready -U audiolearner"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -37,7 +37,7 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
-      DATABASE_URL: postgresql://visiolearn:secure_password_change_this@postgres:5432/visiolearn
+      DATABASE_URL: postgresql://audiolearner:secure_password_change_this@postgres:5432/audiolearner
       REDIS_URL: redis://redis:6379/0
       SECRET_KEY: your-secret-key-here
       ALGORITHM: HS256
@@ -67,7 +67,7 @@ services:
       dockerfile: Dockerfile
     command: celery -A app.celery_app worker --loglevel=info
     environment:
-      DATABASE_URL: postgresql://visiolearn:secure_password_change_this@postgres:5432/visiolearn
+      DATABASE_URL: postgresql://audiolearner:secure_password_change_this@postgres:5432/audiolearner
       REDIS_URL: redis://redis:6379/0
       SECRET_KEY: your-secret-key-here
       ALGORITHM: HS256

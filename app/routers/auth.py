@@ -294,6 +294,34 @@ def register_student(user: schemas.UserRegisterStudent, db: Session = Depends(ge
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Class code not found. Please verify the code with your class teacher."
         )
+
+    # A mobile request can time out after the database commit. Retrying the
+    # same generated device email must return the existing membership instead
+    # of creating another student account.
+    existing_user = db.query(models.User).filter(
+        models.User.email == normalized_email
+    ).first()
+    if existing_user:
+        existing_membership = db.query(models.ClassMembership).filter(
+            models.ClassMembership.student_id == existing_user.id,
+            models.ClassMembership.class_id == class_obj.id,
+            models.ClassMembership.left_at == None,
+        ).first()
+        if existing_user.role == "student" and existing_membership:
+            return {
+                "user_id": existing_user.id,
+                "email": existing_user.email,
+                "full_name": existing_user.full_name,
+                "role": existing_user.role,
+                "class_id": class_obj.id,
+                "class_name": class_obj.class_name,
+                "student_code": code,
+                "created_at": existing_user.created_at,
+            }
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Email already registered",
+        )
     
     # Hash password
     hashed_password = security.get_password_hash(user.password)

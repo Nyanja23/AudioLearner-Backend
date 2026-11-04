@@ -1,5 +1,5 @@
 """
-File Storage Manager for VisioLearn
+File Storage Manager for AudioLearner
 
 Handles secure file storage, validation, and retrieval for lesson notes.
 Supports PDF, DOCX, and TXT files for teacher lesson content uploads.

@@ -21,7 +21,7 @@ sys.path.insert(0, os.path.realpath(os.path.join(os.path.dirname(__file__), '..'
 from app.models import Base
 
 if not config.get_main_option('sqlalchemy.url'):
-    config.set_main_option('sqlalchemy.url', os.environ.get('DATABASE_URL', 'postgresql://postgres:postgres@localhost:5432/visiolearn'))
+    config.set_main_option('sqlalchemy.url', os.environ.get('DATABASE_URL', 'postgresql://postgres:postgres@localhost:5432/audiolearner'))
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.

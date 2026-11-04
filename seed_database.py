@@ -46,38 +46,38 @@ def seed_database():
         # Create admin user
         admin_password = "AdminPass123!@"
         admin = models.User(
-            email="admin@visiolearn.org",
+            email="admin@audiolearner.org",
             full_name="System Administrator",
             role="admin",
             hashed_password=get_password_hash(admin_password),
             school_id=None  # Admin doesn't belong to a school
         )
         db.add(admin)
-        print(f"✓ Created admin user: admin@visiolearn.org")
+        print(f"✓ Created admin user: admin@audiolearner.org")
         
         # Create test teacher
         teacher_password = "TeacherPass123!@"
         teacher = models.User(
-            email="teacher@visiolearn.org",
+            email="teacher@audiolearner.org",
             full_name="Demo Teacher",
             role="teacher",
             hashed_password=get_password_hash(teacher_password),
             school_id="f5c8f3b1-2a4c-4d6e-8f0a-1b3c5d7e9f1a"
         )
         db.add(teacher)
-        print(f"✓ Created teacher user: teacher@visiolearn.org")
+        print(f"✓ Created teacher user: teacher@audiolearner.org")
         
         # Create test student
         student_password = "StudentPass123!@"
         student = models.User(
-            email="student@visiolearn.org",
+            email="student@audiolearner.org",
             full_name="Demo Student",
             role="student",
             hashed_password=get_password_hash(student_password),
             school_id="f5c8f3b1-2a4c-4d6e-8f0a-1b3c5d7e9f1a"
         )
         db.add(student)
-        print(f"✓ Created student user: student@visiolearn.org")
+        print(f"✓ Created student user: student@audiolearner.org")
         
         # Commit all changes
         db.commit()
@@ -87,15 +87,15 @@ def seed_database():
         print("Test Credentials:")
         print("─" * 60)
         print(f"Admin:")
-        print(f"  Email: admin@visiolearn.org")
+        print(f"  Email: admin@audiolearner.org")
         print(f"  Password: {admin_password}")
         print()
         print(f"Teacher:")
-        print(f"  Email: teacher@visiolearn.org")
+        print(f"  Email: teacher@audiolearner.org")
         print(f"  Password: {teacher_password}")
         print()
         print(f"Student:")
-        print(f"  Email: student@visiolearn.org")
+        print(f"  Email: student@audiolearner.org")
         print(f"  Password: {student_password}")
         print("─" * 60)
         
@@ -109,7 +109,7 @@ def seed_database():
         db.close()
 
 if __name__ == "__main__":
-    print("VisioLearn Database Seeder")
+    print("AudioLearner Database Seeder")
     print("=" * 60)
     print()
     seed_database()

@@ -4,7 +4,7 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    VisioLearn Backend                            │
+│                    AudioLearner Backend                            │
 │                                                                   │
 │  ┌───────────────────────────────────────────────────────────┐  │
 │  │           Authentication & Authorization                   │  │
@@ -55,7 +55,7 @@
                          │
                          ▼
                Bootstrap Admin Auto-Created
-         (admin@visiolearn.org, AdminPass123!@)
+         (admin@audiolearner.org, AdminPass123!@)
                          │
                          ▼
               Admin Logs In & Creates Schools
@@ -98,9 +98,9 @@
 
 ### Admin Workflow (Backend Setup)
 ```
-1. System starts → admin@visiolearn.org auto-created ✓
+1. System starts → admin@audiolearner.org auto-created ✓
 2. Admin logs in: curl -X POST /api/v1/auth/login \
-     -d '{"email":"admin@visiolearn.org", "password":"AdminPass123!@"}'
+     -d '{"email":"admin@audiolearner.org", "password":"AdminPass123!@"}'
 3. Admin gets JWT token in response
 4. Admin creates schools: curl -X POST /api/v1/schools \
      -H "Authorization: Bearer {token}" \
