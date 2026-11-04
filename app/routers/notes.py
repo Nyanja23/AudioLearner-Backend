@@ -502,11 +502,12 @@ def delete_lesson_note(
         )
     
     # Delete file from disk
-    try:
-        FileManager.delete_file(note.file_url)
-    except FileStorageError as e:
-        # Log warning but continue with soft delete
-        print(f"Warning: Could not delete file {note.file_url}: {e}")
+    if note.file_url:
+        try:
+            FileManager.delete_file(note.file_url)
+        except FileStorageError as e:
+            # Log warning but continue with soft delete
+            print(f"Warning: Could not delete file {note.file_url}: {e}")
     
     # Soft delete: mark as deleted
     note.is_deleted = True
